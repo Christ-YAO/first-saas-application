@@ -1,4 +1,4 @@
-import Logo from "/app/favicon.ico";
+import Logo from "/public/vercel.svg";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,10 +10,10 @@ export default function Header() {
         <Link href={"/"}>
           <Image
             height={30}
-            width={35}
+            width={80}
             src={Logo}
             alt="Logo Nextjs"
-            className=" dark:bg-white p-[1px] rounded-full"
+            className="bg-accent p-2 rounded"
           />
         </Link>
       </div>
