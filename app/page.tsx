@@ -31,7 +31,7 @@ export default function Home() {
           <Cursor />
         </span>
       </h1>
-      <p className="my-2 text-center font-light">Rejoignez une aventure de codeur.</p>
+      <p className="my-2 text-center font-light dark:font-extralight">Rejoignez une aventure de codeur 💻.</p>
       <ButtonProvider />
     </div>
   );
