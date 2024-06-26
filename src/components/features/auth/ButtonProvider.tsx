@@ -8,14 +8,14 @@ import Loader from "@/components/ui/loader";
 import { LogoutButton } from "./LogoutButton";
 
 export default function ButtonProvider() {
-  const githubMmutation = useMutation({
+  const githubMutation = useMutation({
     // mutationKey: "signIn",
     mutationFn: async () => signIn("github"),
     // onSuccess: () => window.location.reload(),
     onError: () => window.location.reload(),
   });
 
-  const googleMmutation = useMutation({
+  const googleMutation = useMutation({
     // mutationKey: "signIn",
     mutationFn: async () => signIn("google"),
     // onSuccess: () => window.location.reload(),
@@ -27,12 +27,12 @@ export default function ButtonProvider() {
       <Button
         variant={"outline"}
         className="flex gap-4 items-center text-xs"
-        disabled={googleMmutation.isPending}
+        disabled={googleMutation.isPending}
         onClick={() => {
-          googleMmutation.mutate();
+          googleMutation.mutate();
         }}
       >
-        {githubMmutation.isPending ? (
+        {githubMutation.isPending ? (
           <Loader className="mr-2" size={12} />
         ) : (
           <Chrome className="mr-2" size={20} />
@@ -42,12 +42,12 @@ export default function ButtonProvider() {
       <Button
         variant={"outline"}
         className="flex gap-4 items-center text-xs"
-        disabled={githubMmutation.isPending}
+        disabled={githubMutation.isPending}
         onClick={() => {
-          githubMmutation.mutate();
+          githubMutation.mutate();
         }}
       >
-        {githubMmutation.isPending ? (
+        {githubMutation.isPending ? (
           <Loader className="mr-2" size={12} />
         ) : (
           <Github className="mr-2" size={20} />

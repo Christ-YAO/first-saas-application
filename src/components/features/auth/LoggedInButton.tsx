@@ -54,13 +54,13 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem asChild>
+          {/* <DropdownMenuItem asChild>
             <Link href="/dashboard">
               <User2 className="mr-2" size={12} />
               Dashboard
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuSeparator />
+          <DropdownMenuSeparator /> */}
           <AlertDialogTrigger asChild>
             <DropdownMenuItem>
               <LogOut className="mr-2" size={12} />
