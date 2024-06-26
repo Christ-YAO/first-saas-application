@@ -19,7 +19,7 @@ export default function ButtonProvider() {
     <div className="flex flex-col space-y-4">
       <Button variant={"outline"} className="flex gap-4 items-center text-xs">
         <Chrome size={20} />
-        Continuer avec Google
+        Continue with Google
       </Button>
       <Button
         variant={"outline"}
@@ -34,10 +34,10 @@ export default function ButtonProvider() {
         ) : (
           <Github className="mr-2" size={20} />
         )}
-        Continuer avec Github
+        Continue with Github
       </Button>
 
-      <LogoutButton />
+      {/* <LogoutButton /> */}
     </div>
   );
 }

@@ -3,8 +3,11 @@ import Link from "next/link";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import Image from "next/image";
 import Logo from "/public/vercel.svg";
+import { AuthButton } from "../features/auth/AuthButton";
+import { getAuthSession } from "@/lib/auth";
 
-export function Header() {
+export async function Header() {
+  const session = await getAuthSession();
   return (
     <nav className="max-w-[1200px] w-full mx-auto h-[80px] flex items-center justify-between p-5 border-b border-b-accent fixed z-20 top-0 left-0 right-0">
       <div className="">
@@ -19,6 +22,7 @@ export function Header() {
         </Link>
       </div>
       <div className="flex items-center gap-4">
+        {session?.user ? (<AuthButton />) : null}
         <ThemeToggle />
       </div>
     </nav>

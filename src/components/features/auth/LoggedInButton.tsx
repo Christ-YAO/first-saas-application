@@ -55,9 +55,9 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem asChild>
-            <Link href="/profile">
+            <Link href="/dashboard">
               <User2 className="mr-2" size={12} />
-              Profile
+              Dashboard
             </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
