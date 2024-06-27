@@ -32,7 +32,7 @@ export default function ButtonProvider() {
           googleMutation.mutate();
         }}
       >
-        {githubMutation.isPending ? (
+        {googleMutation.isPending ? (
           <Loader className="mr-2" size={12} />
         ) : (
           <Chrome className="mr-2" size={20} />
