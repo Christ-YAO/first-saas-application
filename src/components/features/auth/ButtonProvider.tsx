@@ -26,7 +26,7 @@ export default function ButtonProvider() {
     <div className="flex flex-col space-y-4">
       <Button
         variant={"outline"}
-        className="flex gap-4 items-center text-xs"
+        className="flex gap-2 items-center text-xs"
         disabled={googleMutation.isPending}
         onClick={() => {
           googleMutation.mutate();
@@ -41,7 +41,7 @@ export default function ButtonProvider() {
       </Button>
       <Button
         variant={"outline"}
-        className="flex gap-4 items-center text-xs"
+        className="flex gap-2 items-center text-xs"
         disabled={githubMutation.isPending}
         onClick={() => {
           githubMutation.mutate();

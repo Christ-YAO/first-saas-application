@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { getUser } from "@/lib/actionsUsers";
+import { getUser, updateUser } from "@/lib/actionsUsers";
 import { Trash2 } from "lucide-react";
 
 export default async function SettingsPage() {
@@ -23,7 +23,7 @@ export default async function SettingsPage() {
 
       <div className="w-6 bg-accent-foreground mx-1 h-[0.5px]"></div>
 
-      <form action="">
+      <form action={updateUser}>
         <Input type="hidden" name="id" value={user?.id} />
 
         <Card>
@@ -83,8 +83,11 @@ export default async function SettingsPage() {
 
       <form action="">
         <Input type="hidden" name="id" value="" />
-        <Button variant={"destructive"} className="my-2 flex gap-1 items-center ">
-        <Trash2 size={14} /> Delete your account
+        <Button
+          variant={"destructive"}
+          className="my-2 flex gap-1 items-center "
+        >
+          <Trash2 size={14} /> Delete your account
         </Button>
       </form>
     </Card>
