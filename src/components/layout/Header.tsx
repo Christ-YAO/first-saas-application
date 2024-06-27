@@ -9,7 +9,7 @@ import { getAuthSession } from "@/lib/auth";
 export async function Header() {
   const session = await getAuthSession();
   return (
-    <nav className="max-w-[1200px] w-full mx-auto h-[80px] flex items-center justify-between p-5 border-b border-b-accent">
+    <nav className="max-w-[1200px] w-full mx-auto h-[70px] flex items-center justify-between p-5 border-b border-b-accent">
       <div className="">
         <Link href={"/"}>
           <Image

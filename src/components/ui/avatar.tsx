@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> & {
-    size: "default" | "lg" | "sm";
+    size: "default" | "lg" | "sm" | "xl";
   }
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Root
@@ -16,6 +16,7 @@ const Avatar = React.forwardRef<
     className={cn(
       "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
       {
+        "h-24 w-24": props.size === "xl",
         "h-16 w-16": props.size === "lg",
         "h-10 w-10": props.size === "default",
         "h-8 w-8": props.size === "sm",

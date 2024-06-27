@@ -11,31 +11,33 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { getUser } from "@/lib/actionsUsers";
+import { Trash2 } from "lucide-react";
 
 export default async function SettingsPage() {
   const user = await getUser();
 
   return (
-    <section className="border border-accent rounded-md p-3 space-y-2">
+    <Card className="border border-accent rounded-md p-3 space-y-2">
       <h2 className="text-xl uppercase font-black font-mono">Settings</h2>
       <p className="text-sm text-muted-foreground">Your profile settings</p>
 
-      <div className="w-6 bg-white mx-1 h-[0.5px]"></div>
+      <div className="w-6 bg-accent-foreground mx-1 h-[0.5px]"></div>
 
       <form action="">
         <Input type="hidden" name="id" value={user?.id} />
 
         <Card>
           <CardHeader>
-            <CardTitle>Paramètres globals</CardTitle>
-            <CardDescription>
-              Modifier vos informations puis sauvegarder
-            </CardDescription>
+            <CardTitle>Global settings</CardTitle>
+            <CardDescription>Edit your information then save</CardDescription>
           </CardHeader>
           <CardContent>
             <Avatar size="lg" className="mb-2">
               {user?.image ? (
-                <AvatarImage src={user.image} alt={`${user.name} profil picture`} />
+                <AvatarImage
+                  src={user.image}
+                  alt={`${user.name} profil picture`}
+                />
               ) : null}
               <AvatarFallback>
                 {user?.name?.slice(0, 2).toUpperCase()}
@@ -74,19 +76,17 @@ export default async function SettingsPage() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button variant={"secondary"} type="submit">
-              Update
-            </Button>
+            <Button type="submit">Update</Button>
           </CardFooter>
         </Card>
       </form>
 
       <form action="">
         <Input type="hidden" name="id" value="" />
-        <Button variant={"destructive"} className="mb-2 mt-6">
-          Delete your account
+        <Button variant={"destructive"} className="my-2 flex gap-1 items-center ">
+        <Trash2 size={14} /> Delete your account
         </Button>
       </form>
-    </section>
+    </Card>
   );
 }
