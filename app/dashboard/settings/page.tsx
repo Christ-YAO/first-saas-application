@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Loader from "@/components/ui/loader";
 import { getUser, updateUser } from "@/lib/actionsUsers";
 import { Trash2 } from "lucide-react";
 
@@ -21,7 +22,7 @@ export default async function SettingsPage() {
       <h2 className="text-xl uppercase font-black font-mono">Settings</h2>
       <p className="text-sm text-muted-foreground">Your profile settings</p>
 
-      <div className="w-6 bg-accent-foreground mx-1 h-[0.5px]"></div>
+      <div className="w-6 bg-accent-foreground mx-1 h-[1px]"></div>
 
       <form action={updateUser}>
         <Input type="hidden" name="id" value={user?.id} />
@@ -76,7 +77,10 @@ export default async function SettingsPage() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button type="submit">Update</Button>
+            <Button type="submit">
+              {/* {loader ? <Loader className="mr-2" size={12} /> : "Update"} */}
+              Update
+            </Button>
           </CardFooter>
         </Card>
       </form>

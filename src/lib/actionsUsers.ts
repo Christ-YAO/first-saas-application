@@ -37,6 +37,6 @@ export const updateUser = async (formData: FormData) => {
     console.error("Error updating user:", err);
     throw err;
   } finally {
-    revalidatePath('/')
+    revalidatePath("/");
   }
 };
