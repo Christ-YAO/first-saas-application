@@ -15,7 +15,7 @@ export default function DashboardNav() {
     { name: "Payment", icon: CreditCard, path: "/dashboard/payment" },
   ];
   return (
-    <aside className="flex md:flex-col md:h-full md:w-16 w-full lg:w-40 gap-2">
+    <aside className="flex md:flex-col md:h-full md:w-16 w-full lg:w-40 gap-2 mb-4">
       {menuDashboard.map((link, index) => {
         const isActive = pathname?.startsWith(link.path);
         return (
@@ -24,8 +24,8 @@ export default function DashboardNav() {
             key={index}
             className={cn(
               buttonVariants({ variant: "outline" }),
-              `flex items-center justify-center lg:justify-start gap-2 lg:p-3 p-2 hover:bg-orange-500 hover:bg-opacity-80 hover:text-white text-sm font-light rounded-md transition-all ${
-                isActive && "bg-orange-500 text-white"
+              `flex items-center justify-center lg:justify-start gap-2 lg:p-3 p-2 hover:bg-orange-600 hover:bg-opacity-80 hover:text-white text-sm font-light rounded-md transition-all ${
+                isActive && "bg-orange-600 text-white"
               }`
             )}
           >
