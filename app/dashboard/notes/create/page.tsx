@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -14,11 +16,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { createNote } from "@/lib/actionsNotes";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
-export default async function CreateNotePage() {
+export default function CreateNotePage() {
+  const handleSubmit = async () => {
+    try {
+      await createNote;
+      toast.success("Note successfully created!");
+    } catch (error) {
+      toast.error("Error creating note!");
+    }
+  };
+
   return (
     <Card>
-      <form action={createNote}>
+      <form action={createNote} onSubmit={handleSubmit}>
         <CardHeader>
           <CardTitle>New note</CardTitle>
           <CardDescription>Quelques mots pour ne pas oublier</CardDescription>
@@ -61,7 +73,12 @@ export default async function CreateNotePage() {
           >
             Cancel
           </Link>
-          <Button type="submit" className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white">Create note</Button>
+          <Button
+            type="submit"
+            className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white"
+          >
+            Create note
+          </Button>
         </CardFooter>
       </form>
     </Card>
