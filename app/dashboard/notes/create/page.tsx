@@ -33,7 +33,7 @@ export default function CreateNotePage() {
       <form action={createNote} onSubmit={handleSubmit}>
         <CardHeader>
           <CardTitle>New note</CardTitle>
-          <CardDescription>Quelques mots pour ne pas oublier</CardDescription>
+          <CardDescription>A few words so as not to forget</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">
           <div className="gap-y-2 flex flex-col">

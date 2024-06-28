@@ -41,7 +41,7 @@ export default function UpdateNotePage({ params }: UpdateNotePageProps) {
       <form action="" onSubmit={handleSubmit}>
         <CardHeader>
           <CardTitle>edit note</CardTitle>
-          <CardDescription>Quelques mots pour ne pas oublier</CardDescription>
+          <CardDescription>A few words so as not to forget</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">
           <div className="gap-y-2 flex flex-col">
