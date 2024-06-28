@@ -13,12 +13,20 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { createNote } from "@/lib/actionsNotes";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { toast } from "react-toastify";
 
-export default function CreateNotePage() {
+interface Params {
+  description: string;
+  completed: boolean;
+}
+
+interface UpdateNotePageProps {
+  params: Params;
+}
+
+export default function UpdateNotePage({ params }: UpdateNotePageProps) {
   const handleSubmit = async () => {
     try {
       // await createNote;
@@ -30,9 +38,9 @@ export default function CreateNotePage() {
 
   return (
     <Card>
-      <form action={createNote} onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit}>
         <CardHeader>
-          <CardTitle>New note</CardTitle>
+          <CardTitle>edit note</CardTitle>
           <CardDescription>Quelques mots pour ne pas oublier</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">

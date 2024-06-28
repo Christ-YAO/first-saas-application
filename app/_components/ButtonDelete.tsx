@@ -13,7 +13,7 @@ interface DeleteButtonProps {
 export default function ButtonDelete({ id }: DeleteButtonProps) {
   const handleSubmit = async () => {
     try {
-      await deleteNote;
+      // await deleteNote;
       toast.success("Note successfully deleted!");
     } catch (error) {
       toast.error("Error deleting note!");
