@@ -77,7 +77,7 @@ export default async function SettingsPage() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button type="submit">
+            <Button type="submit" className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white">
               {/* {loader ? <Loader className="mr-2" size={12} /> : "Update"} */}
               Update
             </Button>
