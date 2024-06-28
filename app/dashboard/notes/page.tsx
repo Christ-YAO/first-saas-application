@@ -1,9 +1,11 @@
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getAllNotes } from "@/lib/actionsNotes";
 import { getUser } from "@/lib/actionsUsers";
 import { cn } from "@/lib/utils";
+import { FilePenLine } from "lucide-react";
 import Link from "next/link";
+import ButtonDelete from "../../_components/ButtonDelete";
 
 export default async function NotesPage() {
   const user = await getUser();
@@ -34,7 +36,7 @@ export default async function NotesPage() {
           {notes.map((item, index) => (
             <Card key={index} className="flex items-center justify-between p-4">
               <div>
-                <h2 className="text-orange-600 text-xl font-bold">
+                <h2 className="text-orange-600 font-mono font-bold">
                   {item.title}
                 </h2>
                 <p className="text-sm text-muted-foreground">
@@ -43,6 +45,18 @@ export default async function NotesPage() {
                     dateStyle: "medium",
                   }).format(new Date(item.createAt))}
                 </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Link
+                  href={`notes/note/${item.id}`}
+                  className={cn(
+                    buttonVariants({variant: "ghost"}),
+                    "bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white"
+                  )}
+                >
+                  <FilePenLine size={16} />
+                </Link>
+                <ButtonDelete id={item.id} />
               </div>
             </Card>
           ))}
