@@ -50,4 +50,29 @@ export const getNote = async (id: string) => {
   });
 
   return note;
-}
+};
+
+export const updateNote = async (formData: FormData) => {
+  try {
+    const id = formData.get("id") as string;
+    const title = formData.get("title") as string;
+    const description = formData.get("description") as string;
+    const completed = formData.get("completed");
+
+    if (title !== null || description !== null || completed !== null) {
+      await prisma.notes.update({
+        where: { id },
+        data: {
+          title: title,
+          description: description,
+          completed: completed === "on",
+        },
+      });
+    }
+  } catch (e) {
+    console.error("Error editing note", e);
+    throw new Error("Failed to edit note");
+  } finally {
+    redirect("/");
+  }
+};
