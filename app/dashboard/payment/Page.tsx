@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, CreditCard, Euro } from "lucide-react";
 
 export default function PaymentPage() {
   const itemsPremium = [
@@ -39,8 +39,8 @@ export default function PaymentPage() {
               ))}
             </ul>
             <form action="" className="w-full mt-4">
-              <Button className="bg-orange-600 hover:bg-orange-700 hover:bg-opacity-80 font-mono font-bold transition-all text-white">
-                Become a premium member
+              <Button className="bg-orange-600 hover:bg-orange-700 hover:bg-opacity-80 font-mono font-bold transition-all text-white flex items-center gap-1">
+                <Euro size={16} /> Become a premium member
               </Button>
             </form>
           </div>

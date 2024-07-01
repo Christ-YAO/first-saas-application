@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { createNote } from "@/lib/actionsNotes";
 import { cn } from "@/lib/utils";
+import { NotebookPen } from "lucide-react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 
@@ -75,9 +76,9 @@ export default function CreateNotePage() {
           </Link>
           <Button
             type="submit"
-            className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white"
+            className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white flex gap-1 items-center"
           >
-            Create note
+            <NotebookPen size={16} /> Create note
           </Button>
         </CardFooter>
       </form>

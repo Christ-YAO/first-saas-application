@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Loader from "@/components/ui/loader";
 import { getUser, updateUser } from "@/lib/actionsUsers";
-import { Trash2 } from "lucide-react";
+import { PencilRuler, Trash2 } from "lucide-react";
 
 export default async function SettingsPage() {
   const user = await getUser();
@@ -77,9 +77,9 @@ export default async function SettingsPage() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button type="submit" className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white">
+            <Button type="submit" className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white flex items-center gap-1">
               {/* {loader ? <Loader className="mr-2" size={12} /> : "Update"} */}
-              Update
+              <PencilRuler size={16} /> Edit profile
             </Button>
           </CardFooter>
         </Card>
