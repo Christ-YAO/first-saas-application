@@ -11,7 +11,7 @@ export default async function NotesPage() {
   const user = await getUser();
   const notes = await getAllNotes(user?.id as string);
 
-  await new Promise((r) => setTimeout(r, 5000))
+  // await new Promise((r) => setTimeout(r, 5000))
 
   return (
     <section className="grid items-start gap-y-8">

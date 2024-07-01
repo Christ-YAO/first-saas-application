@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -13,11 +11,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { getNote, updateNote } from "@/lib/actionsNotes";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { toast } from "react-toastify";
+import { redirect } from "next/navigation";
 
 interface Params {
+  id: string;
+  title: string;
   description: string;
   completed: boolean;
 }
@@ -26,19 +27,19 @@ interface UpdateNotePageProps {
   params: Params;
 }
 
-export default function UpdateNotePage({ params }: UpdateNotePageProps) {
-  const handleSubmit = async () => {
-    try {
-      // await createNote;
-      toast.success("Note successfully created!");
-    } catch (error) {
-      toast.error("Error creating note!");
-    }
-  };
+export default async function UpdateNotePage({ params }: UpdateNotePageProps) {
+
+  const note = await getNote(params.id)
+
+  if (!note) {
+    redirect('/dashboard/notes')
+  }
 
   return (
     <Card>
-      <form action="" onSubmit={handleSubmit}>
+      <form action={updateNote}>
+      <Input type="hidden" name="id" value={note?.id} />
+
         <CardHeader>
           <CardTitle>edit note</CardTitle>
           <CardDescription>A few words so as not to forget</CardDescription>
@@ -50,6 +51,7 @@ export default function UpdateNotePage({ params }: UpdateNotePageProps) {
               type="text"
               name="title"
               id="title"
+              defaultValue={note?.title as string}
               placeholder="Note title"
               required
             />
@@ -60,6 +62,7 @@ export default function UpdateNotePage({ params }: UpdateNotePageProps) {
               name="description"
               id="description"
               placeholder="Your Description"
+              defaultValue={note?.description as string}
               required
             ></Textarea>
           </div>
@@ -71,6 +74,7 @@ export default function UpdateNotePage({ params }: UpdateNotePageProps) {
               name="completed"
               id="completed"
               className="cursor-pointer"
+              defaultChecked={note?.completed as boolean}
             />
           </div>
         </CardContent>
@@ -85,7 +89,7 @@ export default function UpdateNotePage({ params }: UpdateNotePageProps) {
             type="submit"
             className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white"
           >
-            Create note
+            Edit note
           </Button>
         </CardFooter>
       </form>
