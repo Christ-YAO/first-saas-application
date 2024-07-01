@@ -25,9 +25,12 @@ export default async function NotesPage() {
         </div>
         <Link
           href={"/dashboard/notes/create"}
-          className={cn(buttonVariants({ variant: "secondary" }), `font-light`)}
+          className={cn(
+            buttonVariants({ variant: "secondary" }),
+            `font-light  mt-4 flex items-center gap-2`
+          )}
         >
-          Create a note
+          Create a note <PlusCircle size={12} className="mt-1" />
         </Link>
       </div>
 
@@ -71,7 +74,7 @@ export default async function NotesPage() {
                   href={`notes/note/${item.id}`}
                   className={cn(
                     buttonVariants({ variant: "ghost" }),
-                    "bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white"
+                    "bg-yellow-600 hover:bg-opacity-80 hover:bg-yellow-600 transition-all text-white"
                   )}
                 >
                   <FilePenLine size={16} />

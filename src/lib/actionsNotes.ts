@@ -59,7 +59,12 @@ export const updateNote = async (formData: FormData) => {
     const description = formData.get("description") as string;
     const completed = formData.get("completed");
 
-    if (title !== null || description !== null || completed !== null) {
+    if (
+      title !== null ||
+      title !== "" ||
+      description !== null ||
+      description !== ""
+    ) {
       await prisma.notes.update({
         where: { id },
         data: {
