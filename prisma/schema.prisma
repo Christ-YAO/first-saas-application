@@ -42,17 +42,18 @@ model Session {
 }
 
 model User {
-  id               String    @id @default(cuid())
+  id               String         @id @default(cuid())
   name             String?
-  email            String?   @unique
+  email            String?        @unique
   emailVerified    DateTime?
   image            String?
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
-  stripeCustomerId String?   @unique
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  stripeCustomerId String?        @unique
   accounts         Account[]
   sessions         Session[]
-  Notes            Notes[]
+  notes            Notes[]
+  subscriptions    Subscription[]
 }
 
 model VerificationToken {
@@ -73,4 +74,17 @@ model Notes {
   upadateAt   DateTime @updatedAt
   userId      String
   user        User     @relation(fields: [userId], references: [id])
+}
+
+model Subscription {
+  stripeSubscriptionId String   @id @unique
+  interval             String
+  status               String
+  planId               String
+  currentPeriodStart   Int
+  currentPeriodEnd     Int
+  createAt             DateTime @default(now())
+  upadateAt            DateTime @updatedAt
+  userId                String
+  user                 User     @relation(fields: [userId], references: [id])
 }
