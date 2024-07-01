@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import Image from "next/image";
-import Logo from "/public/vercel.svg";
+import Logo from "/app/icon.png";
 import { AuthButton } from "../features/auth/AuthButton";
 import { getAuthSession } from "@/lib/auth";
 
@@ -13,11 +13,11 @@ export async function Header() {
       <div className="">
         <Link href={"/"}>
           <Image
-            height={30}
-            width={80}
+            height={100}
+            width={50}
             src={Logo}
             alt="Logo Nextjs"
-            className="bg-accent p-2 rounded"
+            className="hover:bg-accent/50 p-2 rounded-full transition-all"
           />
         </Link>
       </div>

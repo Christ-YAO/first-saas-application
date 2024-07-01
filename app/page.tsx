@@ -1,6 +1,6 @@
 import { getAuthSession } from "@/lib/auth";
 import Image from "next/image";
-import Logo from "/public/vercel.svg";
+import Logo from "/app/icon.png";
 import ButtonProvider from "@/components/features/auth/ButtonProvider";
 import TypeWriter from "./_components/TypeWriter";
 import { Card } from "@/components/ui/card";
@@ -23,7 +23,7 @@ export default async function Home() {
           height={100}
           alt="Logo Vercel"
           src={Logo}
-          className="mb-4 object-contain bg-accent p-2 rounded"
+          className="mb-4 object-contain bg-accent/50 p-2 rounded-full"
         />
         <h1 className="text-4xl md:text-6xl font-black mb-2 text-center uppercase flex items-center font-mono">
           <TypeWriter />
