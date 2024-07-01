@@ -21,7 +21,7 @@ import { toast } from "react-toastify";
 export default function CreateNotePage() {
   const handleSubmit = async () => {
     try {
-      // await createNote;
+      await createNote;
       toast.success("Note successfully created!");
     } catch (error) {
       toast.error("Error creating note!");

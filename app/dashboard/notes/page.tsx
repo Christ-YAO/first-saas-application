@@ -11,6 +11,8 @@ export default async function NotesPage() {
   const user = await getUser();
   const notes = await getAllNotes(user?.id as string);
 
+  await new Promise((r) => setTimeout(r, 5000))
+
   return (
     <section className="grid items-start gap-y-8">
       <div className="flex md:items-center md:justify-between flex-col md:flex-row px-2 gap-4 md:gap-0">
