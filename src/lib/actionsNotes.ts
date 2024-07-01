@@ -43,3 +43,11 @@ export const deleteNote = async (formData: FormData) => {
 
   revalidatePath("/");
 };
+
+export const getNote = async (id: string) => {
+  const note = await prisma.notes.findUnique({
+    where: { id },
+  });
+
+  return note;
+}
