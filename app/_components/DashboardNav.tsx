@@ -24,7 +24,7 @@ export default function DashboardNav() {
             key={index}
             className={cn(
               buttonVariants({ variant: "outline" }),
-              `flex items-center justify-center lg:justify-start gap-2 lg:p-3 p-2 hover:bg-orange-600 hover:bg-opacity-80 hover:text-white text-sm font-light rounded-md transition-all ${
+              `flex items-center justify-center lg:justify-start gap-2 lg:p-3 p-2 hover:bg-orange-600 hover:bg-opacity-80 text-sm font-light rounded-md transition-all ${
                 isActive && "bg-orange-600 text-white"
               }`
             )}
