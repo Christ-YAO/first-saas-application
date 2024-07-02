@@ -25,6 +25,7 @@ export const getDataStripeUser = async (userId: string) => {
 
 export const createSubscription = async () => {
   const user = await getUser();
+
   const dbUser = await prisma.user.findUnique({
     where: {
       id: user?.id,
@@ -35,12 +36,12 @@ export const createSubscription = async () => {
   });
 
   const subscriptionUrl = await getStripeSession({
-    priceId: process.env.STRIPE_PRICE_ID as string,
-    domainUrl: "http://localhost:3000/",
     customerId: dbUser?.stripeCustomerId as string,
+    domainUrl: "http://localhost:3000",
+    priceId: process.env.STRIPE_API_ID as string,
   });
 
-  redirect(subscriptionUrl);
+  return redirect(subscriptionUrl);
 };
 
 export const createCustomerPortal = async () => {
@@ -49,6 +50,5 @@ export const createCustomerPortal = async () => {
     customer: user?.stripeCustomerId as string,
     return_url: "http://localhost:3000/dashboard/payment",
   });
-
   return redirect(session.url);
 };
