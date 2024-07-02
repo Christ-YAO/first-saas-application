@@ -42,6 +42,7 @@ export const deleteNote = async (formData: FormData) => {
   });
 
   revalidatePath("/");
+  redirect("/");
 };
 
 export const getNote = async (id: string) => {
