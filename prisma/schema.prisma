@@ -85,6 +85,6 @@ model Subscription {
   currentPeriodEnd     Int
   createAt             DateTime @default(now())
   upadateAt            DateTime @updatedAt
-  userId                String
+  userId               String   @unique
   user                 User     @relation(fields: [userId], references: [id])
 }
