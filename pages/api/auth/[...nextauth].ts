@@ -8,7 +8,7 @@ import GoogleProvider from 'next-auth/providers/google';
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   theme: {
-    logo: '/app/icon.png',
+    logo: '/icon.png',
   },
   providers: [
     GithubProvider({
