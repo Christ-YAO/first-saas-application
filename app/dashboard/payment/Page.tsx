@@ -23,10 +23,10 @@ export default async function PaymentPage() {
 
   if (dataStripe?.status === "active") {
     return (
-      <div className="maw-w-lg mx-auto space-y-4 my-3">
-        <Card className="flex flex-col">
+      <div className="max-w-lg mx-auto space-y-4 my-3">
+        <Card className="flex flex-col justify-center items-center">
           <CardContent className="py-8">
-            <div>
+            <div className="flex flex-col items-center">
               <h3 className="text-md font-black uppercase bg-orange-900 bg-opacity-20 text-orange-600 p-3 rounded-md inline font-mono">
                 premium pass
               </h3>

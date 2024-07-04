@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Loader from "@/components/ui/loader";
-import { getUser, updateUser } from "@/lib/actionsUsers";
+import { deleteUser, getUser, updateUser } from "@/lib/actionsUsers";
 import { PencilRuler, Trash2 } from "lucide-react";
 
 export default async function SettingsPage() {
@@ -77,7 +77,10 @@ export default async function SettingsPage() {
             </div>
           </CardContent>
           <CardFooter>
-            <Button type="submit" className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white flex items-center gap-1">
+            <Button
+              type="submit"
+              className="bg-orange-600 hover:bg-opacity-80 hover:bg-orange-600 transition-all text-white flex items-center gap-1"
+            >
               {/* {loader ? <Loader className="mr-2" size={12} /> : "Update"} */}
               <PencilRuler size={16} /> Edit profile
             </Button>
@@ -85,8 +88,8 @@ export default async function SettingsPage() {
         </Card>
       </form>
 
-      <form action="">
-        <Input type="hidden" name="id" value="" />
+      <form action={deleteUser}>
+        {/* <Input type="hidden" name="id" value="" /> */}
         <Button
           variant={"destructive"}
           className="my-2 flex gap-1 items-center "
